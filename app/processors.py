@@ -21,7 +21,7 @@ from db_adaptor import (
 )
 
 
-def process_list_users() -> Optional[Dict[Union[str, int], Any]]:
+def process_list_users() -> Dict[str, Any]:
     """Returns total users from Users collection. Counts result."""
     count_users = count_tot_users()
     users_list = get_users()
@@ -57,7 +57,7 @@ def process_post_user(user_to_create: Dict[Union[str, int], Any],
                       fields_to_digest: List[str]) \
         -> Tuple[bool, Union[str, Optional[Dict[Union[str, int], Any]]]]:
     """Adds only one user to collection"""
-    user_email: str = user_to_create.get('email')
+    user_email = user_to_create.get('email')
     exists = find_one_by_filter({'email': user_email})
     if exists:
         new: bool = False

@@ -33,13 +33,13 @@ class UserApi(object):
             api_client = ApiClient()
         self.api_client = api_client
 
-    def delete_user_uuid_post(self, user_uuid, **kwargs):  # noqa: E501
+    def delete_user_by_uuid_post(self, user_uuid, **kwargs):  # noqa: E501
         """Delete a single user record  # noqa: E501
 
         Delete a user  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.delete_user_uuid_post(user_uuid, async_req=True)
+        >>> thread = api.delete_user_by_uuid_post(user_uuid, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
@@ -50,18 +50,18 @@ class UserApi(object):
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async_req'):
-            return self.delete_user_uuid_post_with_http_info(user_uuid, **kwargs)  # noqa: E501
+            return self.delete_user_by_uuid_post_with_http_info(user_uuid, **kwargs)  # noqa: E501
         else:
-            (data) = self.delete_user_uuid_post_with_http_info(user_uuid, **kwargs)  # noqa: E501
+            (data) = self.delete_user_by_uuid_post_with_http_info(user_uuid, **kwargs)  # noqa: E501
             return data
 
-    def delete_user_uuid_post_with_http_info(self, user_uuid, **kwargs):  # noqa: E501
+    def delete_user_by_uuid_post_with_http_info(self, user_uuid, **kwargs):  # noqa: E501
         """Delete a single user record  # noqa: E501
 
         Delete a user  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.delete_user_uuid_post_with_http_info(user_uuid, async_req=True)
+        >>> thread = api.delete_user_by_uuid_post_with_http_info(user_uuid, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
@@ -82,14 +82,14 @@ class UserApi(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method delete_useruser_uuid_post" % key
+                    " to method delete_user_by_uuid_post" % key
                 )
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'user_uuid' is set
         if ('user_uuid' not in params or
                 params['user_uuid'] is None):
-            raise ValueError("Missing the required parameter `user_uuid` when calling `delete_useruser_uuid_post`")  # noqa: E501
+            raise ValueError("Missing the required parameter `user_uuid` when calling `delete_user_by_uuid_post`")  # noqa: E501
 
         collection_formats = {}
 
@@ -238,18 +238,18 @@ class UserApi(object):
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async_req'):
-            return self.get_user_by_email_with_http_info(user_email, **kwargs)  # noqa: E501
+            return self.get_user_by_email_get_with_http_info(user_email, **kwargs)  # noqa: E501
         else:
-            (data) = self.get_user_by_email_with_http_info(user_email, **kwargs)  # noqa: E501
+            (data) = self.get_user_by_email_get_with_http_info(user_email, **kwargs)  # noqa: E501
             return data
 
-    def get_user_by_email_with_http_info(self, user_email, **kwargs):  # noqa: E501
+    def get_user_by_email_get_with_http_info(self, user_email, **kwargs):  # noqa: E501
         """Get's a single user record  # noqa: E501
 
         Get single user record by given user_email  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.get_user_by_email_with_http_info(user_email, async_req=True)
+        >>> thread = api.get_user_by_email_get_with_http_info(user_email, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
@@ -270,14 +270,14 @@ class UserApi(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method get_user_by_emailuser_email_get" % key
+                    " to method get_user_by_email_get" % key
                 )
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'user_email' is set
         if ('user_email' not in params or
                 params['user_email'] is None):
-            raise ValueError("Missing the required parameter `user_email` when calling `get_user_by_emailuser_email_get`")  # noqa: E501
+            raise ValueError("Missing the required parameter `user_email` when calling `get_user_by_email_get`")  # noqa: E501
 
         collection_formats = {}
 
@@ -369,14 +369,14 @@ class UserApi(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method get_user_by_uuiduser_uuid_get" % key
+                    " to method get_user_by_uuid_get" % key
                 )
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'user_uuid' is set
         if ('user_uuid' not in params or
                 params['user_uuid'] is None):
-            raise ValueError("Missing the required parameter `user_uuid` when calling `get_user_by_uuiduser_uuid_get`")  # noqa: E501
+            raise ValueError("Missing the required parameter `user_uuid` when calling `get_user_by_uuid_get`")  # noqa: E501
 
         collection_formats = {}
 
@@ -664,18 +664,18 @@ class UserApi(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method update_useruser_uuid_put" % key
+                    " to method update_user_by_uuid_put" % key
                 )
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'user_uuid' is set
         if ('user_uuid' not in params or
                 params['user_uuid'] is None):
-            raise ValueError("Missing the required parameter `user_uuid` when calling `update_useruser_uuid_put`")  # noqa: E501
+            raise ValueError("Missing the required parameter `user_uuid` when calling `update_user_by_uuid_put`")  # noqa: E501
         # verify the required parameter 'body' is set
         if ('body' not in params or
                 params['body'] is None):
-            raise ValueError("Missing the required parameter `body` when calling `update_useruser_uuid_put`")  # noqa: E501
+            raise ValueError("Missing the required parameter `body` when calling `update_user_by_uuid_put`")  # noqa: E501
 
         collection_formats = {}
 

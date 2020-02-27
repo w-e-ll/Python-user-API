@@ -12,6 +12,6 @@ Name | Type | Description | Notes
 **status** | **str** | User status | 
 **links** | [**Links**](Links.md) |  | [optional] 
 
-[[Back to Model list]](../../swagger-client/README.md#documentation-for-models) [[Back to API list]](../../swagger-client/README.md#documentation-for-api-endpoints) [[Back to README]](../../swagger-client/README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 

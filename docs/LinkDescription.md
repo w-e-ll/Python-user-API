@@ -10,6 +10,6 @@ Name | Type | Description | Notes
 **method** | **str** | method for requesting the target of the link (e.g. for HTTP this might be &#39;GET&#39; or &#39;DELETE&#39;) | [optional] [default to '(Optional) GET']
 **enc_type** | **str** | The media type in which to submit data along with the request | [optional] [default to 'application/json']
 
-[[Back to Model list]](../../swagger-client/README.md#documentation-for-models) [[Back to API list]](../../swagger-client/README.md#documentation-for-api-endpoints) [[Back to README]](../../swagger-client/README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
 

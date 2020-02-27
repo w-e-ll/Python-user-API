@@ -1,10 +1,10 @@
-# swagger_client.UserAPIApi
+# swagger_client.UserApi
 
 All URIs are relative to *http://0.0.0.0:8080/api/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-*UserApi* | [**delete_user_uuid_post**](docs/UserApi.md#delete_user_uuid_post) | **POST** /delete_user/<user_uuid> | Delete a single user record
+*userApi* | [**delete_user_by_uuid_post**](docs/UserApi.md#delete_user_by_uuid_post) | **POST** /delete_user/<user_uuid> | Delete a single user record
 *UserApi* | [**get_total_users_get**](docs/UserApi.md#get_total_users_get) | **GET** /get_total_users | Get all system users
 *UserApi* | [**get_user_by_email_get**](docs/UserApi.md#get_user_by_email_get) | **GET** /get_user_by_email/<user_email> | Get's a single user record
 *UserApi* | [**get_user_by_uuid_get**](docs/UserApi.md#get_user_by_uuid_get) | **GET** /get_user_by_uuid/<user_uuid> | Get's a single user record
@@ -12,7 +12,7 @@ Method | HTTP request | Description
 *UserApi* | [**post_users_post**](docs/UserApi.md#post_users_post) | **POST** /post_users | Adds users to User db. Upload as many as you want.
 *UserApi* | [**update_user_by_uuid_put**](docs/UserApi.md#update_user_by_uuid_put) | **PUT** /update_user/<user_uuid> | Updates an existing user
 
-[**delete_user_uuid_post**](UserApi.md#delete_user_uuid_post) | **POST** /delete_user/<user_uuid> | Delete a single user record
+[**delete_user_by_uuid_post**](UserApi.md#delete_user_by_uuid_post) | **POST** /delete_user/<user_uuid> | Delete a single user record
 [**get_total_users_get**](UserApi.md#get_total_users_get) | **GET** /get_total_users | Get all system users
 [**get_user_by_email_get**](UserApi.md#get_user_by_email_get) | **GET** /get_user_by_email/<user_email> | Get's a single user record
 [**get_user_by_uuid_get**](UserApi.md#get_user_by_uuid_get) | **GET** /get_user_by_uuid/<user_uuid> | Get's a single user record
@@ -21,8 +21,8 @@ Method | HTTP request | Description
 [**update_user_by_uuid_put**](UserApi.md#update_user_by_uuid_put) | **PUT** /update_user/<user_uuid> | Updates an existing user
 
 
-# **delete_user_uuid_post**
-> delete_user_uuid_post(user_uuid)
+# **delete_user_by_uuid_post**
+> delete_user_by_uuid_post(user_uuid)
 
 Delete a single user record
 
@@ -37,14 +37,14 @@ from swagger_client.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swagger_client.UserAPIApi()
+api_instance = swagger_client.UserApi()
 user_uuid = 'user_uuid_example' # str | UUID of the user to delete
 
 try:
     # Delete a single user record
-    api_instance.delete_user_uuid_post(user_uuid)
+    api_instance.delete_user_by_uuid_post(user_uuid)
 except ApiException as e:
-    print("Exception when calling UserApi->delete_useruser_uuid_post: %s\n" % e)
+    print("Exception when calling UserApi->delete_user_by_uuid_post: %s\n" % e)
 ```
 
 ### Parameters
@@ -66,7 +66,7 @@ No authorization required
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../../swagger-client/README.md#documentation-for-api-endpoints) [[Back to Model list]](../../swagger-client/README.md#documentation-for-models) [[Back to README]](../../swagger-client/README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_total_users_get**
 > get_total_users_get()
@@ -82,7 +82,7 @@ from swagger_client.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swagger_client.UserAPIApi()
+api_instance = swagger_client.UserApi()
 
 try:
     # Get all system users
@@ -107,7 +107,7 @@ No authorization required
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../../swagger-client/README.md#documentation-for-api-endpoints) [[Back to Model list]](../../swagger-client/README.md#documentation-for-models) [[Back to README]](../../swagger-client/README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_user_by_email_get**
 > User get_user_by_email_get(user_email)
@@ -125,7 +125,7 @@ from swagger_client.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swagger_client.UserAPIApi()
+api_instance = swagger_client.UserApi()
 user_email = 'user_email_example' # str | Email of the user to get
 
 try:
@@ -155,7 +155,7 @@ No authorization required
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../../swagger-client/README.md#documentation-for-api-endpoints) [[Back to Model list]](../../swagger-client/README.md#documentation-for-models) [[Back to README]](../../swagger-client/README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_user_by_uuid_get**
 > User get_user_by_uuid_get(user_uuid)
@@ -173,7 +173,7 @@ from swagger_client.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swagger_client.UserAPIApi()
+api_instance = swagger_client.UserApi()
 user_uuid = 'user_uuid_example' # str | UUID of the user to get
 
 try:
@@ -203,7 +203,7 @@ No authorization required
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../../swagger-client/README.md#documentation-for-api-endpoints) [[Back to Model list]](../../swagger-client/README.md#documentation-for-models) [[Back to README]](../../swagger-client/README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **post_user_post**
 > User post_user_post(body)
@@ -219,7 +219,7 @@ from swagger_client.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swagger_client.UserAPIApi()
+api_instance = swagger_client.UserApi()
 body = swagger_client.User() # User | User object
 
 try:
@@ -249,7 +249,7 @@ No authorization required
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../../swagger-client/README.md#documentation-for-api-endpoints) [[Back to Model list]](../../swagger-client/README.md#documentation-for-models) [[Back to README]](../../swagger-client/README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **post_users_post**
 > Users post_users_post(body)
@@ -297,7 +297,7 @@ No authorization required
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../../swagger-client/README.md#documentation-for-api-endpoints) [[Back to Model list]](../../swagger-client/README.md#documentation-for-models) [[Back to README]](../../swagger-client/README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_useruser_uuid_put**
 > update_user_by_uuid_put(user_uuid, body)
@@ -344,5 +344,5 @@ No authorization required
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../../swagger-client/README.md#documentation-for-api-endpoints) [[Back to Model list]](../../swagger-client/README.md#documentation-for-models) [[Back to README]](../../swagger-client/README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

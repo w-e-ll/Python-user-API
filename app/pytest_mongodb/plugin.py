@@ -2,6 +2,7 @@ import functools
 import json
 import os
 import codecs
+from typing import Dict, Any
 
 from bson import json_util
 import mongomock
@@ -10,7 +11,7 @@ import pymongo
 import yaml
 
 
-_cache = {}
+_cache: Dict[Any, Any] = {}
 _engine = 'pymongo'
 
 

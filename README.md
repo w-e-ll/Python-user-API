@@ -43,8 +43,8 @@ You may find more info in markdown format there.
 This service have been tested on:
 
 * Ubuntu 16.04
-* Docker version 17.12.0-ce, build c97c6d6
-* docker-compose version 1.18.0, build 8dd22a9
+* Docker version 19.03.6, build 369ce74a3c
+* docker-compose version 1.25.4, build 8d51620a
 
 To install requirements and start the application:
 
@@ -115,14 +115,14 @@ from swagger_client.rest import ApiException
 from pprint import pprint
 
 # create an instance of the API class
-api_instance = swagger_client.UserApi(swagger_client.ApiClient(configuration))
+api_instance = swagger_client.ApiClient(configuration)
 user_uuid = 'user_uuid_example' # str | UUID of the user to delete
 
 try:
     # Delete a single user record
-    api_instance.delete_user_uuid_post(user_uuid)
+    api_instance.delete_user_by_uuid_post(user_uuid)
 except ApiException as e:
-    print("Exception when calling UserApi->delete_useruser_uuid_post: %s\n" % e)
+    print("Exception when calling UserApi->delete_user_by_uuid_post: %s\n" % e)
 
 ```
 
@@ -132,23 +132,23 @@ All URIs are relative to *http://0.0.0.0:8080/api/v1*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*UserApi* | [**delete_user_uuid_post**](swagger-client/docs/UserApi.md#delete_user_uuid_post) | **POST** /delete_user/<user_uuid> | Delete a single user record
-*UserApi* | [**get_total_users_get**](swagger-client/docs/UserApi.md#get_total_users_get) | **GET** /get_total_users | Get all system users
-*UserApi* | [**get_user_by_email_get**](swagger-client/docs/UserApi.md#get_user_by_email_get) | **GET** /get_user_by_email/<user_email> | Get's a single user record
-*UserApi* | [**get_user_by_uuid_get**](swagger-client/docs/UserApi.md#get_user_by_uuid_get) | **GET** /get_user_by_uuid/<user_uuid> | Get's a single user record
-*UserApi* | [**post_user_post**](swagger-client/docs/UserApi.md#post_user_post) | **POST** /post_user | Adds a single user record
-*UserApi* | [**post_users_post**](swagger-client/docs/UserApi.md#post_users_post) | **POST** /post_users | Adds users to User db. Upload as many as you want.
-*UserApi* | [**update_user_by_uuid_put**](swagger-client/docs/UserApi.md#update_user_by_uuid_put) | **PUT** /update_user/<user_uuid> | Updates an existing user
+*UserApi* | [**delete_user_by_uuid_post**](docs/UserApi.md#delete_user_by_uuid_post) | **POST** /delete_user/<user_uuid> | Delete a single user record
+*UserApi* | [**get_total_users_get**](docs/UserApi.md#get_total_users_get) | **GET** /get_total_users | Get all system users
+*UserApi* | [**get_user_by_email_get**](docs/UserApi.md#get_user_by_email_get) | **GET** /get_user_by_email/<user_email> | Get's a single user record
+*UserApi* | [**get_user_by_uuid_get**](docs/UserApi.md#get_user_by_uuid_get) | **GET** /get_user_by_uuid/<user_uuid> | Get's a single user record
+*UserApi* | [**post_user_post**](docs/UserApi.md#post_user_post) | **POST** /post_user | Adds a single user record
+*UserApi* | [**post_users_post**](docs/UserApi.md#post_users_post) | **POST** /post_users | Adds users to User db. Upload as many as you want.
+*UserApi* | [**update_user_by_uuid_put**](docs/UserApi.md#update_user_by_uuid_put) | **PUT** /update_user/<user_uuid> | Updates an existing user
 
 
 ## Documentation For Models
 
- - [Error](swagger-client/docs/Error.md)
- - [GetTotalUsers](swagger-client/docs/GetTotalUsers.md)
- - [LinkDescription](swagger-client/docs/LinkDescription.md)
- - [Links](swagger-client/docs/Links.md)
- - [User](swagger-client/docs/User.md)
- - [Users](swagger-client/docs/Users.md)
+ - [Error](docs/Error.md)
+ - [GetTotalUsers](docs/GetTotalUsers.md)
+ - [LinkDescription](docs/LinkDescription.md)
+ - [Links](docs/Links.md)
+ - [User](docs/User.md)
+ - [Users](docs/Users.md)
 
 
 ## Documentation For Authorization

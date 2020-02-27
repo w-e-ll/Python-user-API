@@ -16,21 +16,21 @@ from __future__ import absolute_import
 import unittest
 
 import swagger_client
-from swagger_client.api.user_api import UserApi  # noqa: E501
+from swagger_client.api.user_api_api import UserAPIApi  # noqa: E501
 from swagger_client.rest import ApiException
 
 
-class TestUserApi(unittest.TestCase):
-    """UserApi unit test stubs"""
+class TestUserAPIApi(unittest.TestCase):
+    """UserAPIApi unit test stubs"""
 
     def setUp(self):
-        self.api = swagger_client.api.user_api.UserApi()  # noqa: E501
+        self.api = swagger_client.api.user_api_api.UserAPIApi()  # noqa: E501
 
     def tearDown(self):
         pass
 
-    def test_delete_user_uuid_post(self):
-        """Test case for delete_user_uuid_post
+    def test_delete_useruser_uuid_post(self):
+        """Test case for delete_useruser_uuid_post
 
         Delete a single user record  # noqa: E501
         """
@@ -43,15 +43,15 @@ class TestUserApi(unittest.TestCase):
         """
         pass
 
-    def test_get_user_by_email_get(self):
-        """Test case for get_user_by_email_get
+    def test_get_user_by_emailuser_email_get(self):
+        """Test case for get_user_by_emailuser_email_get
 
         Get's a single user record  # noqa: E501
         """
         pass
 
-    def test_get_user_by_uuid_get(self):
-        """Test case for get_user_by_uuid_get
+    def test_get_user_by_uuiduser_uuid_get(self):
+        """Test case for get_user_by_uuiduser_uuid_get
 
         Get's a single user record  # noqa: E501
         """
@@ -71,8 +71,8 @@ class TestUserApi(unittest.TestCase):
         """
         pass
 
-    def test_update_user_by_uuid_put(self):
-        """Test case for update_user_uuid_put
+    def test_update_useruser_uuid_put(self):
+        """Test case for update_useruser_uuid_put
 
         Updates an existing user  # noqa: E501
         """

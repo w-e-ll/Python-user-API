@@ -9,6 +9,6 @@ Name | Type | Description | Notes
 **information_link** | **str** | URI for detailed information related to this error for the developer. It is recommended that this value is streamed out in error response from one of the links from catalog&#39;s error_spec.json#links | [optional] 
 **links** | [**Links**](Links.md) |  | [optional] 
 
-[[Back to Model list]](../../swagger-client/README.md#documentation-for-models) [[Back to API list]](../../swagger-client/README.md#documentation-for-api-endpoints) [[Back to README]](../../swagger-client/README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
 
