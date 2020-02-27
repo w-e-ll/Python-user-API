@@ -1,0 +1,10 @@
+# Sets domain specific information
+
+version: "3.0"
+services:
+  web:
+    environment:
+      WEB_SCHEME: "${WEB_SCHEME:-http}"
+      WEB_HOST: "${WEB_HOST:-0.0.0.0}"
+      WEB_PORT: "${WEB_PORT:-8080}"
+      WEB_BASE: "${WEB_BASE:-/api/v1}"

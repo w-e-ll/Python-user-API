@@ -1,0 +1,11 @@
+# Starts MongoDB for local debug
+
+version: "3.0"
+services:
+  db:
+    image: mongo
+    command: "--storageEngine wiredTiger"
+    volumes:
+      - ../db:/data/db:rw
+    ports:
+      - 127.0.0.1:37020:27017

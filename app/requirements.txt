@@ -1,0 +1,15 @@
+pytest==5.3.5
+mongomock==3.19.0
+bottle==0.12.18
+bson==0.5.9
+mongoengine==0.19.1
+pymongo==3.10.1
+python-dateutil==2.8.1
+six==1.14.0
+jsonschema==3.2.0
+PyYAML==5.3
+mypy==0.761
+pydevd==1.9.0
+pytest-mongodb==2.2.0
+pytest-pycharm==0.6.0
+pytest-pydev

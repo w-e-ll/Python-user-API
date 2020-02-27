@@ -1,0 +1,31 @@
+-
+  firstname: Mario
+  lastname: Götze
+  company: Bing
+  email: mario.götze@bing.com
+  status: confirmed
+  links: http://google_455.net
+
+-
+  firstname: Manuel
+  lastname: Neuer
+  company: Yandex
+  email: manuel.neuer@yandex.com
+  status: confirmed
+  links: http://google_456.net
+
+-
+  firstname: Jon
+  lastname: Smith
+  company: Google
+  email: jon.wmith@yandex.com
+  status: confirmed
+  links: http://google_457.net
+
+-
+  firstname: Mary
+  lastname: Sun
+  company: EasyFind
+  email: mary.wun@easyfind.com
+  status: confirmed
+  links: http://google_458.net

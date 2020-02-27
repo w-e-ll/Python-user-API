@@ -1,0 +1,8 @@
+DEBUG:root:Reading from default_config.ini
+INFO:root:Setting LOG_LEVEL to DEBUG.
+DEBUG:root:APPLICATION_SETTINGS: {"VERSION": "0.1", "BASE_PATH": "/opt/project/app"}
+DEBUG:root:HTTP_SERVER: {"ADDRESS": "http://0.0.0.0.8080"}
+DEBUG:root:DATABASE: {"ADDRESS": "db", "PORT": 27017, "DB_NAME": "userAPI", "COL_NAME": "users"}
+DEBUG:root:SERVER_SETTINGS: {"SERVER_PORT": 8080, "SERVER_IP": "0.0.0.0", "WEB_BASE": "/api/v1", "WEB_SCHEME": "http"}
+DEBUG:root:LOG: {"LEVEL": "DEBUG"}
+INFO:root:{'Message': 'Initializing Bottle...'}

@@ -1,0 +1,546 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "This is a simple Users API. It provides basic logic, CRUD operations of users.",
+    "version": "1.0.0",
+    "title": "Python Users API",
+    "termsOfService": "http://swagger.io/terms/",
+    "contact": {
+      "email": "valentin.sheboldaev@gmail.com"
+    },
+    "license": {
+      "name": "Apache 2.0",
+      "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+    }
+  },
+  "host": "0.0.0.0:8080",
+  "basePath": "/api/v1",
+  "tags": [
+    {
+      "name": "userAPI",
+      "description": "User API endpoints, CRUD operations"
+    }
+  ],
+  "schemes": [
+    "http"
+  ],
+  "paths": {
+    "/get_total_users": {
+      "get": {
+        "tags": [
+          "userAPI"
+        ],
+        "summary": "Get all system users",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/getTotalUsers"
+            }
+          },
+          "405": {
+            "description": "Wrong method",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          },
+          "406": {
+            "description": "Accept header is provided but 'application/json' type is not present in header",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          },
+          "415": {
+            "description": "Unsupported media type. 'Content-Type' header is provided and it is not the 'application/json'",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      }
+    },
+    "/get_user_by_uuid/<user_uuid>": {
+      "get": {
+        "tags": [
+          "userAPI"
+        ],
+        "summary": "Get's a single user record",
+        "description": "Get single user record by given user_uuid",
+        "parameters": [
+          {
+            "name": "user_uuid",
+            "in": "path",
+            "description": "UUID of the user to get",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/User"
+            }
+          },
+          "400": {
+            "description": "Validation error",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          },
+          "404": {
+            "description": "User not found",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          },
+          "405": {
+            "description": "Wrong method",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          },
+          "406": {
+            "description": "Accept header is provided but 'application/json' type is not present in header",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          },
+          "415": {
+            "description": "Unsupported media type. 'Content-Type' header is provided and it is not the 'application/json'",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      }
+    },
+    "/get_user_by_email/<user_email>": {
+      "get": {
+        "tags": [
+          "userAPI"
+        ],
+        "summary": "Get's a single user record",
+        "description": "Get single user record by given user_email",
+        "parameters": [
+          {
+            "name": "user_email",
+            "in": "path",
+            "description": "Email of the user to get",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/User"
+            }
+          },
+          "400": {
+            "description": "Validation error",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          },
+          "404": {
+            "description": "User not found",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          },
+          "405": {
+            "description": "Wrong method",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          },
+          "406": {
+            "description": "Accept header is provided but 'application/json' type is not present in header",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          },
+          "415": {
+            "description": "Unsupported media type. 'Content-Type' header is provided and it is not the 'application/json'",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      }
+    },
+    "/post_user": {
+      "post": {
+        "tags": [
+          "userAPI"
+        ],
+        "summary": "Adds a single user record",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "User object",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/User"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/User"
+            }
+          },
+          "400": {
+            "description": "Validation error",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          },
+          "404": {
+            "description": "User not found",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          },
+          "405": {
+            "description": "Wrong method",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          },
+          "406": {
+            "description": "Accept header is provided but 'application/json' type is not present in header",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          },
+          "415": {
+            "description": "Unsupported media type. 'Content-Type' header is provided and it is not the 'application/json'",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      }
+    },
+    "/post_users": {
+      "post": {
+        "tags": [
+          "userAPI"
+        ],
+        "summary": "Adds users to User db. Upload as many as you want.",
+        "description": "Add as many users to User db, as want.",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "description": "List of users to post",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Users"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Users"
+            }
+          },
+          "400": {
+            "description": "Validation error",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          },
+          "404": {
+            "description": "User not found",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          },
+          "405": {
+            "description": "Wrong method",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          },
+          "406": {
+            "description": "Accept header is provided but 'application/json' type is not present in header",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          },
+          "415": {
+            "description": "Unsupported media type. 'Content-Type' header is provided and it is not the 'application/json'",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      }
+    },
+    "/update_user/<user_uuid>": {
+      "put": {
+        "tags": [
+          "userAPI"
+        ],
+        "summary": "Updates an existing user",
+        "parameters": [
+          {
+            "name": "user_uuid",
+            "in": "path",
+            "description": "UUID of user to update",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "description": "User object to update",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/User"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/User"
+            }
+          },
+          "400": {
+            "description": "Validation error",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          },
+          "404": {
+            "description": "User not found",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          },
+          "405": {
+            "description": "Wrong method",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          },
+          "406": {
+            "description": "Accept header is provided but 'application/json' type is not present in header",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          },
+          "415": {
+            "description": "Unsupported media type. 'Content-Type' header is provided and it is not the 'application/json'",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      }
+    },
+    "/delete_user/<user_uuid>": {
+      "post": {
+        "tags": [
+          "userAPI"
+        ],
+        "summary": "Delete a single user record",
+        "description": "Delete a user",
+        "parameters": [
+          {
+            "name": "user_uuid",
+            "in": "path",
+            "description": "UUID of the user to delete",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Delete is OK"
+          },
+          "404": {
+            "description": "User not found or already deleted",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          },
+          "405": {
+            "description": "Wrong method",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "getTotalUsers": {
+      "description": "List all users from Users collection",
+      "type": "object",
+      "required": [
+        "userList"
+      ],
+      "properties": {
+        "userList": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Users"
+          }
+        }
+      }
+    },
+    "Users": {
+      "description": "a list of user objects",
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/User"
+      }
+    },
+    "User": {
+      "description": "A single user representation",
+      "type": "object",
+      "required": [
+        "company",
+        "firstname",
+        "lastname",
+        "email",
+        "status"
+      ],
+      "properties": {
+        "uuid": {
+          "readOnly": true,
+          "type": "string",
+          "example": "USER-7C89635351F24483AD2DC89A154A42CD"
+        },
+        "digest": {
+          "description": "SHA-1 message authentication code of required fields mapping.",
+          "readOnly": true,
+          "type": "string",
+          "example": "a52ff69bb057178b01c0cee07f09cd4ea930ba4e"
+        },
+        "company": {
+          "type": "string",
+          "description": "User job company",
+          "example": "Google Inc"
+        },
+        "firstname": {
+          "type": "string",
+          "description": "User first name",
+          "example": "Jim"
+        },
+        "lastname": {
+          "type": "string",
+          "description": "User last name",
+          "example": "Smith"
+        },
+        "email": {
+          "type": "string",
+          "description": "User email",
+          "example": "Jim.Smith@gmail.com"
+        },
+        "status": {
+          "type": "string",
+          "description": "User status",
+          "example": "confirmed"
+        },
+        "links": {
+          "$ref": "#/definitions/Links"
+        }
+      }
+    },
+    "Error": {
+      "type": "object",
+      "title": "error",
+      "description": "Error details",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Human readable, unique name of the error. It is recommended that this value is streamed out in error response from catalog's error_spec.json#name"
+        },
+        "debug_id": {
+          "type": "string",
+          "description": "Internal identifier used for correlation purposes"
+        },
+        "message": {
+          "type": "string",
+          "description": "Message describing the error. It is recommended that this value is streamed out in error response from catalog's error_spec.json#message"
+        },
+        "information_link": {
+          "type": "string",
+          "description": "URI for detailed information related to this error for the developer. It is recommended that this value is streamed out in error response from one of the links from catalog's error_spec.json#links"
+        },
+        "links": {
+          "$ref": "#/definitions/Links"
+        }
+      },
+      "required": [
+        "name",
+        "debug_id",
+        "message"
+      ]
+    },
+    "Links": {
+      "description": "a list of link_Description objects",
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/Link_description"
+      }
+    },
+    "Link_description": {
+      "title": "Link Description Object",
+      "type": "object",
+      "required": [
+        "href",
+        "rel"
+      ],
+      "properties": {
+        "href": {
+          "description": "a URI template, as defined by RFC 6570, with the addition of the $, ( and ) characters for pre-processing",
+          "type": "string",
+          "example": "http://0.0.0.0:8080/v1"
+        },
+        "rel": {
+          "description": "relation to the target user of the link",
+          "type": "string",
+          "example": "result"
+        },
+        "title": {
+          "description": "a title for the link",
+          "type": "string",
+          "example": "(Optional) Results will be available with this href"
+        },
+        "mediaType": {
+          "description": "media type (as defined by RFC 2046) describing the link target",
+          "type": "string",
+          "default": "application/json",
+          "example": "(Optional) application/json"
+        },
+        "method": {
+          "description": "method for requesting the target of the link (e.g. for HTTP this might be 'GET' or 'DELETE')",
+          "type": "string",
+          "default": "(Optional) GET",
+          "example": "POST"
+        },
+        "encType": {
+          "description": "The media type in which to submit data along with the request",
+          "type": "string",
+          "default": "application/json",
+          "example": "(Optional) application/json"
+        }
+      }
+    }
+  }
+}
