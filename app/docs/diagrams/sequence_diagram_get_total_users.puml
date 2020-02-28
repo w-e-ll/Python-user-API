@@ -1,0 +1,16 @@
+@startuml
+actor Client
+control Server
+database DB
+== GET /get_total_users ==
+Client -> Server: GET /get_total_users
+Server -> Server: VALIDATE\nHEADER
+alt VALIDATION ERROR
+Server -> Server: PREPARE \n_error_ \nJSON
+Server --> Client: IF ERROR _error_\nJSON (405/406/415)
+else VALIDATION OK
+Server <-> DB: READ\n users collection
+Server -> Server: PREPARE \n_users_collection_\nJSON
+Server --> Client: RETURN\n_users_collection_\nJSON (200)
+end
+@enduml

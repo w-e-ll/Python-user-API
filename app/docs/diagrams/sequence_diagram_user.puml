@@ -1,0 +1,119 @@
+@startuml
+actor Client
+control Server
+database DB
+== GET /get_user_by_uuid/{user_uuid} ==
+Client -> Server: GET /get_user_by_uuid/{user_uuid}
+Server -> Server: VALIDATE\nHEADER
+alt VALIDATION ERROR
+Server -> Server: IF ERROR\nPREPARE \n_error_ \nJSON
+Server --> Client: IF ERROR\nRETURN\n_error_\nJSON(405/406/415)
+Server -> Server: VALIDATE\nBODY
+Server -> Server: IF ERROR\nPREPARE \n_error_ \nJSON
+Server --> Client: IF ERROR\n_error_\nJSON(400)
+else VALIDATION OK
+Server <-> DB: CHECK\n if user_uuid IN DB
+alt USER_UUID IS NOT PRESENT IN DB
+Server -> Server: PREPARE\n _error_\nJSON
+Server --> Client: _error_\nJSON(404)
+else USER_UUID IS PRESENT IN DB
+Server <-> DB: READ \n user record
+Server -> Server: PREPARE _user_\nJSON
+Server --> Client: RETURN\nuser_collection\nJSON(200)
+end
+end
+newpage
+== GET /get_user_by_email/{user_email} ==
+Client -> Server: GET /get_user_by_email/{user_email}
+Server -> Server: VALIDATE\nHEADER
+alt VALIDATION ERROR
+Server -> Server: IF ERROR\nPREPARE \n_error_ \nJSON
+Server --> Client: IF ERROR\nRETURN\n_error_\nJSON(405/406/415)
+Server -> Server: VALIDATE\nBODY
+Server -> Server: IF ERROR\nPREPARE \n_error_ \nJSON
+Server --> Client: IF ERROR\n_error_\nJSON(400)
+else VALIDATION OK
+Server <-> DB: CHECK\n if user_email IN DB
+alt USER_EMAIL IS NOT PRESENT IN DB
+Server -> Server: PREPARE\n _error_\nJSON
+Server --> Client: _error_\nJSON(404)
+else USER_EMAIL IS PRESENT IN DB
+Server <-> DB: READ \n user record
+Server -> Server: PREPARE _user_\nJSON
+Server --> Client: RETURN\nuser_collection\nJSON(200)
+end
+end
+newpage
+== POST /post_user ==
+Client -> Server: POST /post_user
+Server -> Server: VALIDATE\nHEADER
+alt VALIDATION ERROR
+Server -> Server: IF ERROR\nPREPARE \n_error_ \nJSON
+Server --> Client: IF ERROR\nRETURN\n_error_\nJSON(405/406/415)
+Server -> Server: VALIDATE\nBODY
+Server -> Server: IF ERROR\nPREPARE \n_error_ \nJSON
+Server --> Client: IF ERROR\n_error_\nJSON(400)
+else VALIDATION OK
+Server -> Server: CALCULATE\nDIGEST
+Server <-> DB: CHECK \nIS DIGEST IN DB
+alt DIGEST IS PRESENT IN DB
+Server <-> DB: READ present\n user record
+Server -> Server: PREPARE _user_\nJSON
+Server --> Client: _user_\nJSON (200)
+else DIGEST IS NOT PRESENT IN DB
+Server -> Server: PREPARE user\n object to save\n to DB
+Server -> DB: WRITE user\n to DB
+Server <-> DB: READ created\n user record
+Server -> Server: PREPARE _user_\nJSON
+Server --> Client: RETURN\nuser_collection\nJSON(201)
+end
+end
+newpage
+== PUT /update_user/{user_uuid} ==
+Client -> Server: PUT /update_user/{user_uuid}
+Server -> Server: VALIDATE\nHEADER
+alt VALIDATION ERROR
+Server -> Server: IF ERROR\nPREPARE \n_error_ \nJSON
+Server --> Client: IF ERROR\nRETURN\n_error_\nJSON(405/406/415)
+Server -> Server: VALIDATE\nBODY
+Server -> Server: IF ERROR\nPREPARE \n_error_ \nJSON
+Server --> Client: IF ERROR\n_error_\nJSON(400)
+else VALIDATION OK
+Server <-> DB: CHECK\n if user_uuid IN DB
+alt USER_UUID IS NOT PRESENT IN DB
+Server -> Server: PREPARE\n _error_\nJSON
+Server --> Client: _error_\nJSON(404)
+else USER_UUID IS PRESENT IN DB
+Server -> Server: CALCULATE\nDIGEST
+Server <-> DB: CHECK \nIS DIGEST IN DB
+alt DIGEST IS PRESENT IN DB
+Server <-> DB: READ present\n user record
+Server -> Server: PREPARE _user_\nJSON
+Server --> Client: _user_\nJSON (200)
+else DIGEST IS NOT PRESENT IN DB
+Server -> Server: PREPARE user\n object to update\n in DB
+Server -> DB: WRITE user\n to DB
+Server <-> DB: READ created\n user record
+Server -> Server: PREPARE _user_\nJSON
+Server --> Client: RETURN\users_collection\nJSON(200)
+end
+end
+end
+newpage
+== DELETE /delete_user/{user_uuid} ==
+Client -> Server: DELETE /delete_user/{user_uuid}
+Server -> Server: VALIDATE\nHEADER
+alt VALIDATION ERROR
+Server -> Server: IF ERROR\nPREPARE \n_error_ \nJSON
+Server --> Client: IF ERROR\nRETURN\n_error_\nJSON(405)
+else VALIDATION OK
+Server <-> DB: CHECK\n if user_uuid IN DB
+alt USER IS NOT PRESENT IN DB
+Server -> Server: PREPARE\n _error_\nJSON
+Server --> Client: _error_\nJSON(404)
+else USER IS PRESENT IN DB
+Server <-> DB: DELETE record
+Server --> Client: RETURN No Content (204)
+end
+end
+@enduml

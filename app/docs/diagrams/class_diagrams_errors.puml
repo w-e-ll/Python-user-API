@@ -1,0 +1,10 @@
+@startuml
+Exception <|-- ServerError
+ServerError <|-- InternalServerError
+ServerError <|-- UsrNotFound
+ServerError <|-- RequestValidationError
+RequestValidationError <|--- WrongMethod
+RequestValidationError <|--- ParametersError
+RequestValidationError <|--- AcceptTypeError
+RequestValidationError <|--- ContentTypeError
+@enduml

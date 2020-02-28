@@ -9,7 +9,4 @@ six==1.14.0
 jsonschema==3.2.0
 PyYAML==5.3
 mypy==0.761
-pydevd==1.9.0
 pytest-mongodb==2.2.0
-pytest-pycharm==0.6.0
-pytest-pydev
